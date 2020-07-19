@@ -64,6 +64,7 @@ POST: http://localhost/agro/api/user/validate-otp-set-password
 ### Sub Task (Primary)
 - [ ] Mobile Number should exist in database and [status in 1,2,3]
 - [ ] OTP Validation
+- [ ] Store the password in db as password_hash and password_salt
 
 ### Sub Task (Secondary)
 - [ ] Mobile Number Valdiation [Number Only] [Max Length 10]
@@ -112,13 +113,6 @@ GET: http://localhost/agro/api/user/validate/6thtrhy566756765y567
 ```javascript
 {
     "Content-Type": "application/json"
-}
-```
-
-:Request:
-```javascript
-{
-    "code": "6thtrhy566756765y567"
 }
 ```
 
@@ -175,16 +169,17 @@ POST: http://localhost/agro/api/user/login
 ```
 
 ### Sub Task (Primary)
-- [ ] Mobile Number should exist in database with status 1 (active) and already validated with OTP
-- [ ] Check for Password Validity
+- [ ] Mobile Number should exist in database and [status in 2,3]
+- [ ] Check for Password Validity with hashed db password
 - [ ] Return JWT Token with payload { mobno: 9791070990, role: user or admin or  }
+- [ ] If invalid Mobile number or password then return Error Code 401: Invalid Login details
 
 ### Sub Task (Secondary)
 - [ ] Mobile Number Valdiation [Number Only] [Max Length 10]
 
 ------
 
-#### API: My Profile
+#### API 06: My Profile
 GET: http://localhost/agro/api/user/myprofile
 
 :Header:
@@ -238,12 +233,33 @@ GET: http://localhost/agro/api/user/myprofile
 - [ ] Extract Mobno from JWT and process the request
 
 ### Sub Task (Secondary)
-- [ ] My profile data validation
+- [ ] My profile form data validation
+
+------
+
+#### API 07: Payment
+GET: http://localhost/agro/api/user/payment
+
+:Header:
+```javascript
+{
+    "Content-Type": "application/json"
+    "Authorization": "jwt token..."
+}
+```
+
+### Sub Task (Primary)
+- [ ] Check for JWT Validity
+- [ ] Extract Mobno from JWT and process the request
+- [ ] Analysis needed. For test purpose we can make a entry in payment table
+
+### Sub Task (Secondary)
+- [ ] N/A
 
 ------
 
 #### API 08: Generate Referal
-GET: http://localhost/agro/api/user/referal-register
+GET: http://localhost/agro/api/user/generate-referal
 
 :Header:
 ```javascript
@@ -272,14 +288,14 @@ GET: http://localhost/agro/api/user/referal-register
 ### Sub Task (Primary)
 - [ ] Mobile Number should exist in database and [status=3]
 - [ ] Check for Matrix A is available
-- [ ] Referal code is hashed with a combination of [mobno_matrix]
+- [ ] Referal code is hashed with a combination of [mobno_matrix eg: 9791070918_A]
 
 ### Sub Task (Secondary)
 - [x] No Task
 
 ------
 
-#### API 09: Referal Register
+#### API 09: Register with Referal Code
 GET: http://localhost/agro/api/user/referal-register
 
 :Header:
@@ -296,7 +312,6 @@ GET: http://localhost/agro/api/user/referal-register
     "last_name": "Perumal",
     "email": "senthil@gmail.com",
     "mobno": "9791078777",
-    "password": "welcome123",
     "referal_code": "37857uefj83u58utfio340895ui930it",
 }
 ```
