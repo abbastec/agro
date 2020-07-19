@@ -25,8 +25,11 @@ POST: http://localhost/agro/api/user/mobno-login
 }
 ```
 ### Sub Task (Primary)
-- [x] If Mobile Number exist in Database and [Status=2 or Status=3], then response status will be 1. We can Navigate the screen to get password.
-- [ ] If Mobile Number exist in Database and [Status=1], then response status will be 2. We can Navigate the screen to get OTP. Also API will send Generated OTP to mobile number. 
+- [ ] If Mobile Number exist in Database and [Status=2 or Status=3]
+* - [ ] Return response status as 1. We can Navigate the screen to get password.
+- [ ] If Mobile Number exist in Database and [Status=1]
+* - [ ] Return response status will be 2. We can Navigate the screen to get OTP. 
+* - [ ] Also API will send Generated OTP to respective mobile number. 
 - [ ] If Mobile Number does not exist in Database we will throw 401 error 
 
 ### Sub Task (Secondary)
@@ -72,67 +75,7 @@ POST: http://localhost/agro/api/user/validate-otp-set-password
 
 ------
 
-#### API 03: Request EMmail Verification Link
-POST: http://localhost/agro/api/user/request-email-verify-link
-
-:Header:
-```javascript
-{
-    "Content-Type": "application/json"
-}
-```
-
-:Request:
-```javascript
-{
-    "mobno": "979107099"
-}
-```
-
-:Response:
-```javascript
-{
-    "status": 1,
-    "message": "Ok"
-}
-```
-### Sub Task (Primary)
-- [ ] Mobile Number should exist in database and [status = 2]
-- [ ] send a password hashed value as a link to the registered email.
-
-
-### Sub Task (Secondary)
-- [ ] Mobile Number Valdiation [Number Only] [Max Length 10]
-
-------
-
-#### API 04: Validate EMailID
-GET: http://localhost/agro/api/user/validate/6thtrhy566756765y567
-
-:Header:
-```javascript
-{
-    "Content-Type": "application/json"
-}
-```
-
-:Response:
-```javascript
-{
-    "status": 1,
-    "message": "Ok"
-}
-```
-
-### Sub Task (Primary)
-- [ ] Verify EMail Code and check User [status =2]
-
-### Sub Task (Secondary)
-- [ ] Mobile Number Valdiation [Number Only] [Max Length 10]
-
-------
-
-#### API 05: Login with Password
+#### API 03: Login with Password
 POST: http://localhost/agro/api/user/login
 
 :Header:
@@ -179,8 +122,28 @@ POST: http://localhost/agro/api/user/login
 
 ------
 
-#### API 06: My Profile
-GET: http://localhost/agro/api/user/myprofile
+#### API 04: Payment
+POST: http://localhost/agro/api/user/payment
+
+:Header:
+```javascript
+{
+    "Content-Type": "application/json"
+    "Authorization": "jwt token..."
+}
+```
+
+### Sub Task (Primary)
+- [ ] Check for JWT Validity and extract Mobno from JWT and process the request
+- [ ] Analysis needed. For test purpose we can make a entry in payment table
+
+### Sub Task (Secondary)
+- [ ] N/A
+
+------
+
+#### API 05: My Profile
+POST: http://localhost/agro/api/user/myprofile
 
 :Header:
 ```javascript
@@ -229,36 +192,14 @@ GET: http://localhost/agro/api/user/myprofile
 ```
 
 ### Sub Task (Primary)
-- [ ] Check for JWT Validity
-- [ ] Extract Mobno from JWT and process the request
+- [ ] Check for JWT Validity and extract Mobno from JWT and process the request
 
 ### Sub Task (Secondary)
 - [ ] My profile form data validation
 
 ------
 
-#### API 07: Payment
-GET: http://localhost/agro/api/user/payment
-
-:Header:
-```javascript
-{
-    "Content-Type": "application/json"
-    "Authorization": "jwt token..."
-}
-```
-
-### Sub Task (Primary)
-- [ ] Check for JWT Validity
-- [ ] Extract Mobno from JWT and process the request
-- [ ] Analysis needed. For test purpose we can make a entry in payment table
-
-### Sub Task (Secondary)
-- [ ] N/A
-
-------
-
-#### API 08: Generate Referal
+#### API 06: Generate Referal
 GET: http://localhost/agro/api/user/generate-referal
 
 :Header:
@@ -272,7 +213,6 @@ GET: http://localhost/agro/api/user/generate-referal
 :Request:
 ```javascript
 {
-    "mobno": "9791070319", 
     "matrix": "A"
 }
 ```
@@ -286,17 +226,123 @@ GET: http://localhost/agro/api/user/generate-referal
 }
 ```
 ### Sub Task (Primary)
+- [ ] Check for JWT Validity and extract Mobno from JWT and process the request
 - [ ] Mobile Number should exist in database and [status=3]
 - [ ] Check for Matrix A is available
-- [ ] Referal code is hashed with a combination of [mobno_matrix eg: 9791070918_A]
+- [ ] Referal code is hashed with a combination of [mobno /_matrix eg: 9791070918A]
 
 ### Sub Task (Secondary)
 - [x] No Task
 
 ------
 
-#### API 09: Register with Referal Code
-GET: http://localhost/agro/api/user/referal-register
+#### API 07: View Transaction
+GET: http://localhost/agro/api/user/view-tran
+
+:Header:
+```javascript
+{
+    "Content-Type": "application/json"
+    "Authorization": "jwt token..."
+}
+```
+
+:Response:
+```javascript
+{
+    "status": 1,
+    "message": "Ok",
+    "tran": {
+        walletAmount: 500,
+        list: [   
+            { "dt":"12-JUL-2020", "desc": "Withdrawl", "cr": 0, "dr": 1000 },
+            { "dt":"11-JUL-2020", "desc": "RAKESH Joined", "user_id": "23", "cr": 1000, "dr": 0 },
+            { "dt":"10-JUL-2020", "desc": "Initial Wallet Credit", "cr": 500, "dr": 0 },
+            { "dt":"10-JUL-2020", "desc": "Initial Payment", "cr": 0, "dr": 5000 }
+        ]
+    }
+}
+```
+### Sub Task (Primary)
+- [ ] Check for JWT Validity and extract Mobno from JWT and process the request
+
+### Sub Task (Secondary)
+- [x] No Task
+
+------
+
+#### API 08: Apply Withdrawl
+POST: http://localhost/agro/api/user/apply-withdrawl
+
+:Header:
+```javascript
+{
+    "Content-Type": "application/json"
+    "Authorization": "jwt token..."
+}
+```
+
+:Request:
+```javascript
+{
+    "amount": "1000",
+    "comments": "For Personal"
+}
+```
+
+:Response:
+```javascript
+{
+    "status": 1,
+    "message": "Ok"
+}
+```
+
+### Sub Task (Primary)
+- [ ] Check for JWT Validity and extract Mobno from JWT and process the request
+- [ ] Check Withdrawl amount is available.
+- [ ] Previous Withdrawal request should not be in pending.
+
+### Sub Task (Secondary)
+- [x] No Task
+
+------
+
+#### API 09: View Withdrawl
+GET: http://localhost/agro/api/user/view-withdrawl
+
+:Header:
+```javascript
+{
+    "Content-Type": "application/json"
+    "Authorization": "jwt token..."
+}
+```
+
+:Response:
+```javascript
+{
+    "status": 1,
+    "message": "Ok",
+    "tran": [
+        { "req_date": "15-JUL-2020", "req_amount": "1000", "req_status": "Pending", "comments": "" }
+    ]
+    
+}
+```
+
+### Sub Task (Primary)
+- [ ] Check for JWT Validity and extract Mobno from JWT and process the request.
+- [ ] Withdrawl request status will be Pending, Processed and Rejected.
+- [ ] Previous Withdrawal request should not be in pending.
+
+### Sub Task (Secondary)
+- [x] No Task
+
+------
+
+#### API 10: Register with Referal Code
+GET: http://localhost/agro/api/user/referal-registration
 
 :Header:
 ```javascript
@@ -325,6 +371,7 @@ GET: http://localhost/agro/api/user/referal-register
 ```
 ### Sub Task (Primary)
 - [ ] Mobile Number should not exist in database and [status not in 1,2,3]
+- [ ] Referal code should be valid and available for registration
 
 ### Sub Task (Secondary)
 - [ ] First name, last name validation. Max Length: 50
