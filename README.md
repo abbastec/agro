@@ -25,7 +25,7 @@ POST: http://localhost/agro/api/user/mobno-login
 }
 ```
 ### Sub Task (Primary)
-- [ ] If Mobile Number exist in Database and [Status=2 or Status=3], then response status will be 1. We can Navigate the screen to get password.
+- [x] If Mobile Number exist in Database and [Status=2 or Status=3], then response status will be 1. We can Navigate the screen to get password.
 - [ ] If Mobile Number exist in Database and [Status=1], then response status will be 2. We can Navigate the screen to get OTP. Also API will send Generated OTP to mobile number. 
 - [ ] If Mobile Number does not exist in Database we will throw 401 error 
 
