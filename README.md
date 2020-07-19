@@ -1,5 +1,39 @@
 ### API End Point
-#### API 01: Referal Register
+#### API: Generate Referal Code
+GET: http://localhost/agro/api/user/gen-refereal-code
+
+:Header:
+```javascript
+{
+    "Content-Type": "application/json",
+    "Authorization": "jwt token..."
+}
+```
+
+:Request:
+```javascript
+{
+    "node": "A"
+}
+```
+
+:Response:
+```javascript
+{
+    "status": 1,
+    "message": "Ok",
+    "referal_code": "lgjeilj3984ut8erugfioerjfeoi34u"
+}
+```
+### Sub Task (Primary)
+- [ ] Check for JWT Validity
+- [ ] Extract Mobno from JWT and process the request
+
+### Sub Task (Secondary)
+- [ ] No Task
+
+------
+#### API: Referal Register
 GET: http://localhost/agro/api/user/referal-register
 
 :Header:
@@ -39,7 +73,7 @@ GET: http://localhost/agro/api/user/referal-register
 - [ ] Validate Referal Code
 
 ------
-#### API 02: Send OTP
+#### API: Send OTP
 GET: http://localhost/agro/api/user/send-otp
 
 :Header:
@@ -71,7 +105,7 @@ GET: http://localhost/agro/api/user/send-otp
 - [ ] Mobile Number Valdiation [Number Only] [Max Length 10]
 
 ------
-#### API 03: Verify OTP
+#### API: Verify OTP
 GET: http://localhost/agro/api/user/verify-otp
 
 :Header:
@@ -103,7 +137,7 @@ GET: http://localhost/agro/api/user/verify-otp
 - [ ] Mobile Number Valdiation [Number Only] [Max Length 10]
 
 ------
-#### API 04: Login
+#### API: Login
 GET: http://localhost/agro/api/user/login
 
 :Header:
@@ -148,7 +182,7 @@ GET: http://localhost/agro/api/user/login
 - [ ] Mobile Number Valdiation [Number Only] [Max Length 10]
 
 ------
-#### API 05: EMailId Validation
+#### API: EMailId Validation
 GET: http://localhost/agro/api/user/email-validate
 
 :Header:
@@ -178,7 +212,7 @@ GET: http://localhost/agro/api/user/email-validate
 ### Sub Task (Secondary)
 - [ ] 
 
-#### API 06: My Profile
+#### API: My Profile
 GET: http://localhost/agro/api/user/myprofile
 
 :Header:
