@@ -7,7 +7,8 @@
     </a>
 </p>
 
-### POST: http://localhost/agro/api/user/mobno-login
+POST: http://localhost/agro/api/user/mobno-login
+
 
 :Header:
 ```javascript
