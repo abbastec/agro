@@ -1,14 +1,16 @@
 ### API End Point
 
 #### API 01: Mobile Number Login
+
 <p>
     <a href="https://raw.githubusercontent.com/abbastec/agro/master/01-mobno-login.JPG" target="_blank">
         <img src="https://raw.githubusercontent.com/abbastec/agro/master/01-mobno-login.JPG" align="left" width="30" >
     </a>
 </p>
 
-POST: http://localhost/agro/api/user/mobno-login
-
+Request Type | API End Point
+------------ | -------------
+POST | http://localhost/agro/api/user/mobno-login
 
 :Header:
 ```javascript
@@ -46,7 +48,16 @@ POST: http://localhost/agro/api/user/mobno-login
 ------
 
 #### API 02: Validate OTP and Set New Password
-POST: http://localhost/agro/api/user/validate-otp-set-password
+
+<p>
+    <a href="https://raw.githubusercontent.com/abbastec/agro/master/02-validate-otp-set-password.JPG" target="_blank">
+        <img src="https://raw.githubusercontent.com/abbastec/agro/master/02-validate-otp-set-password.JPG" align="left" width="30" >
+    </a>
+</p>
+
+Request Type | API End Point
+------------ | -------------
+POST | http://localhost/agro/api/user/validate-otp-set-password
 
 :Header:
 ```javascript
@@ -83,7 +94,16 @@ POST: http://localhost/agro/api/user/validate-otp-set-password
 ------
 
 #### API 03: Login with Password
-POST: http://localhost/agro/api/user/login
+
+<p>
+    <a href="https://raw.githubusercontent.com/abbastec/agro/master/03-login-with-password.JPG" target="_blank">
+        <img src="https://raw.githubusercontent.com/abbastec/agro/master/03-login-with-password.JPG" align="left" width="30" >
+    </a>
+</p>
+
+Request Type | API End Point
+------------ | -------------
+POST | http://localhost/agro/api/user/login
 
 :Header:
 ```javascript
@@ -130,7 +150,16 @@ POST: http://localhost/agro/api/user/login
 ------
 
 #### API 04: Payment
-POST: http://localhost/agro/api/user/payment
+
+<p>
+    <a href="https://raw.githubusercontent.com/abbastec/agro/master/04-payment.JPG" target="_blank">
+        <img src="https://raw.githubusercontent.com/abbastec/agro/master/04-payment.JPG" align="left" width="30" >
+    </a>
+</p>
+
+Request Type | API End Point
+------------ | -------------
+POST | http://localhost/agro/api/user/payment
 
 :Header:
 ```javascript
@@ -150,7 +179,16 @@ POST: http://localhost/agro/api/user/payment
 ------
 
 #### API 05: My Profile
-GET: http://localhost/agro/api/user/myprofile
+
+<p>
+    <a href="https://raw.githubusercontent.com/abbastec/agro/master/05-my-profile.JPG" target="_blank">
+        <img src="https://raw.githubusercontent.com/abbastec/agro/master/05-my-profile.JPG" align="left" width="30" >
+    </a>
+</p>
+
+Request Type | API End Point
+------------ | -------------
+GET | http://localhost/agro/api/user/myprofile
 
 :Header:
 ```javascript
@@ -199,7 +237,16 @@ GET: http://localhost/agro/api/user/myprofile
 ------
 
 #### API 05.01: My Profile :: Update Address
-POST: http://localhost/agro/api/user/update-address
+
+<p>
+    <a href="https://raw.githubusercontent.com/abbastec/agro/master/05_01-update-address.JPG" target="_blank">
+        <img src="https://raw.githubusercontent.com/abbastec/agro/master/05_01-update-address.JPG" align="left" width="30" >
+    </a>
+</p>
+
+Request Type | API End Point
+------------ | -------------
+POST | http://localhost/agro/api/user/update-address
 
 :Header:
 ```javascript
@@ -238,7 +285,16 @@ POST: http://localhost/agro/api/user/update-address
 ------
 
 #### API 05.02: My Profile :: Update Pan
-POST: http://localhost/agro/api/user/update-pan
+
+<p>
+    <a href="https://raw.githubusercontent.com/abbastec/agro/master/05_02-update-pan.JPG" target="_blank">
+        <img src="https://raw.githubusercontent.com/abbastec/agro/master/05_02-update-pan.JPG" align="left" width="30" >
+    </a>
+</p>
+
+Request Type | API End Point
+------------ | -------------
+POST | http://localhost/agro/api/user/update-pan
 
 :Header:
 ```javascript
@@ -273,7 +329,16 @@ POST: http://localhost/agro/api/user/update-pan
 ------
 
 #### API 05.03: My Profile :: Update Address Proof
-POST: http://localhost/agro/api/user/update-addressproof
+
+<p>
+    <a href="https://raw.githubusercontent.com/abbastec/agro/master/05_03-update-address.JPG" target="_blank">
+        <img src="https://raw.githubusercontent.com/abbastec/agro/master/05_03-update-address.JPG" align="left" width="30" >
+    </a>
+</p>
+
+Request Type | API End Point
+------------ | -------------
+POST | http://localhost/agro/api/user/update-addressproof
 
 :Header:
 ```javascript
@@ -309,7 +374,16 @@ POST: http://localhost/agro/api/user/update-addressproof
 ------
 
 #### API 05.04: My Profile :: Bank Details
-POST: http://localhost/agro/api/user/update-bank
+
+<p>
+    <a href="https://raw.githubusercontent.com/abbastec/agro/master/05_04-update-bank.JPG" target="_blank">
+        <img src="https://raw.githubusercontent.com/abbastec/agro/master/05_04-update-bank.JPG" align="left" width="30" >
+    </a>
+</p>
+
+Request Type | API End Point
+------------ | -------------
+POST | http://localhost/agro/api/user/update-bank
 
 :Header:
 ```javascript
@@ -349,7 +423,10 @@ POST: http://localhost/agro/api/user/update-bank
 ------
 
 #### API 05.05: Upload File
-POST: http://localhost/agro/api/user/update
+
+Request Type | API End Point
+------------ | -------------
+POST | http://localhost/agro/api/user/update
 
 :Header:
 ```javascript
@@ -388,7 +465,16 @@ POST: http://localhost/agro/api/user/update
 ------
 
 #### API 06: Generate Referal
-GET: http://localhost/agro/api/user/generate-referal
+
+<p>
+    <a href="https://raw.githubusercontent.com/abbastec/agro/master/06-generate-referal.JPG" target="_blank">
+        <img src="https://raw.githubusercontent.com/abbastec/agro/master/06-generate-referal.JPG" align="left" width="30" >
+    </a>
+</p>
+
+Request Type | API End Point
+------------ | -------------
+GET | http://localhost/agro/api/user/generate-referal
 
 :Header:
 ```javascript
@@ -530,7 +616,16 @@ GET: http://localhost/agro/api/user/view-withdrawl
 ------
 
 #### API 10: Register with Referal Code
-GET: http://localhost/agro/api/user/referal-registration
+
+<p>
+    <a href="https://raw.githubusercontent.com/abbastec/agro/master/10-referal-registration.JPG" target="_blank">
+        <img src="https://raw.githubusercontent.com/abbastec/agro/master/10-referal-registration.JPG" align="left" width="30" >
+    </a>
+</p>
+
+Request Type | API End Point
+------------ | -------------
+POST | http://localhost/agro/api/user/referal-registration
 
 :Header:
 ```javascript
