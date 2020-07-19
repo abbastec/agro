@@ -1,40 +1,7 @@
 ### API End Point
-#### API: Generate Referal Code
-GET: http://localhost/agro/api/user/gen-refereal-code
 
-:Header:
-```javascript
-{
-    "Content-Type": "application/json",
-    "Authorization": "jwt token..."
-}
-```
-
-:Request:
-```javascript
-{
-    "node": "A"
-}
-```
-
-:Response:
-```javascript
-{
-    "status": 1,
-    "message": "Ok",
-    "referal_code": "lgjeilj3984ut8erugfioerjfeoi34u"
-}
-```
-### Sub Task (Primary)
-- [ ] Check for JWT Validity
-- [ ] Extract Mobno from JWT and process the request
-
-### Sub Task (Secondary)
-- [ ] No Task
-
-------
-#### API: Referal Register
-GET: http://localhost/agro/api/user/referal-register
+#### API: Reset Password
+GET: http://localhost/agro/api/user/mobno-login
 
 :Header:
 ```javascript
@@ -46,12 +13,7 @@ GET: http://localhost/agro/api/user/referal-register
 :Request:
 ```javascript
 {
-    "first_name": "Senthil", 
-    "last_name": "Perumal",
-    "email": "senthil@gmail.com",
-    "mobno": "9791078777",
-    "password": "welcome123",
-    "referal_code": "4564564567757",
+    "mobno": "9798977767"
 }
 ```
 
@@ -63,18 +25,17 @@ GET: http://localhost/agro/api/user/referal-register
 }
 ```
 ### Sub Task (Primary)
-- [ ] Mobile Number should not exist in database with status 1 (active)
+- [ ] If Mobile Number exist in Database and verified, then response status will be 1. We can Navigate the screen to get password.
+- [ ] If Mobile Number exist in Database with role admin and not verified, then response status will be 2. We can Navigate the screen to get OTP.
+- [ ] If Mobile Number does not exist in Database we will throw 401 error 
 
 ### Sub Task (Secondary)
-- [x] First name, last name validation. Max Length: 50
-- [ ] EMail Id Validation
-- [ ] Mobile Number Valdiation [Number Only] [Max Length 10]
-- [ ] Password Validation [Min Length 8] [Characters Allowed: A-Z a-z 0-0 _ -] [Must have one alphabet and one number]
-- [ ] Validate Referal Code
+- [ ] Mobile Number Validation [10 numbers]
 
 ------
-#### API: Send OTP
-GET: http://localhost/agro/api/user/send-otp
+
+#### API: Request OTP
+GET: http://localhost/agro/api/user/request-otp
 
 :Header:
 ```javascript
@@ -105,6 +66,7 @@ GET: http://localhost/agro/api/user/send-otp
 - [ ] Mobile Number Valdiation [Number Only] [Max Length 10]
 
 ------
+
 #### API: Verify OTP
 GET: http://localhost/agro/api/user/verify-otp
 
@@ -137,6 +99,7 @@ GET: http://localhost/agro/api/user/verify-otp
 - [ ] Mobile Number Valdiation [Number Only] [Max Length 10]
 
 ------
+
 #### API: Login
 GET: http://localhost/agro/api/user/login
 
@@ -174,7 +137,7 @@ GET: http://localhost/agro/api/user/login
 ```
 
 ### Sub Task (Primary)
-- [ ] Mobile Number should exist in database with status 1 (active)
+- [ ] Mobile Number should exist in database with status 1 (active) and already validated with OTP
 - [ ] Check for Password Validity
 - [ ] Return JWT Token with payload { mobno: 9791070990, role: user or admin or  }
 
@@ -182,6 +145,85 @@ GET: http://localhost/agro/api/user/login
 - [ ] Mobile Number Valdiation [Number Only] [Max Length 10]
 
 ------
+
+#### API: Generate Referal
+GET: http://localhost/agro/api/user/referal-register
+
+:Header:
+```javascript
+{
+    "Content-Type": "application/json"
+    "Authorization": "jwt token..."
+}
+```
+
+:Request:
+```javascript
+{
+    "mobno": "9791070319", 
+    "matrix": "A"
+}
+```
+
+:Response:
+```javascript
+{
+    "status": 1,
+    "message": "Ok",
+    "referal_code": "37857uefj83u58utfio340895ui930it"
+}
+```
+### Sub Task (Primary)
+- [ ] Mobile Number should exist in database with status 3 [Active, Verified, Payment Done]
+- [ ] Check for Matrix A is available
+- [ ] Referal code is hashed with a combination of [mobno_matrix]
+
+### Sub Task (Secondary)
+- [x] No Task
+
+------
+
+#### API: Referal Register
+GET: http://localhost/agro/api/user/referal-register
+
+:Header:
+```javascript
+{
+    "Content-Type": "application/json"
+}
+```
+
+:Request:
+```javascript
+{
+    "first_name": "Senthil", 
+    "last_name": "Perumal",
+    "email": "senthil@gmail.com",
+    "mobno": "9791078777",
+    "password": "welcome123",
+    "referal_code": "37857uefj83u58utfio340895ui930it",
+}
+```
+
+:Response:
+```javascript
+{
+    "status": 1,
+    "message": "Ok"
+}
+```
+### Sub Task (Primary)
+- [ ] Mobile Number should not exist in database with status 1 (active)
+
+### Sub Task (Secondary)
+- [x] First name, last name validation. Max Length: 50
+- [ ] EMail Id Validation
+- [ ] Mobile Number Valdiation [Number Only] [Max Length 10]
+- [ ] Password Validation [Min Length 8] [Characters Allowed: A-Z a-z 0-0 _ -] [Must have one alphabet and one number]
+- [ ] Validate Referal Code
+
+------
+
 #### API: EMailId Validation
 GET: http://localhost/agro/api/user/email-validate
 
