@@ -143,7 +143,56 @@ POST: http://localhost/agro/api/user/payment
 ------
 
 #### API 05: My Profile
-POST: http://localhost/agro/api/user/myprofile
+GET: http://localhost/agro/api/user/myprofile
+
+:Header:
+```javascript
+{
+    "Content-Type": "application/json"
+    "Authorization": "jwt token..."
+}
+```
+
+:Response:
+```javascript
+{
+    "status": 1,
+    "message": "Ok"
+    "address": {
+        "line1": "address line1",
+        "line2": "address line2",
+        "landmark": "landmark",
+        "city": "city",
+        "state": "state",
+        "pin": "pin",
+    },
+    "pan": {
+        "panno": "XXXXXXX78",
+        "status": "Approved"
+    },
+    "address": {
+        "proof_no": "XXX-XXXX-XX98",
+        "status": "Approved",
+    },
+    "bank_details": {
+        "acno": "XXXXXX56",
+        "status": "Approved",
+    }
+}
+```
+
+### Sub Task (Primary)
+- [ ] Check for JWT Validity and extract Mobno from JWT and process the request
+- [ ] Mask all the Id's
+- [ ] Don't return document file url
+
+### Sub Task (Secondary)
+- [ ] My profile form data validation
+
+------
+
+#### API 05.01: My Profile :: Update Address
+POST: http://localhost/agro/api/user/update-address
 
 :Header:
 ```javascript
@@ -156,30 +205,12 @@ POST: http://localhost/agro/api/user/myprofile
 :Request:
 ```javascript
 {
-    "address": {
-        "line1": "address line1",
-        "line2": "address line2",
-        "landmark": "landmark",
-        "city": "city",
-        "state": "state",
-        "pin": "pin",
-    },
-    "proof": {
-        "panno": "ALRRS9878",
-        "panno_url": "...",
-        "address_proof_type": "",
-        "address_proof_no": "",
-        "address_proof_url": "",
-        "bank_cross_cheque_url": "",
-        "password_leaf_url": "",
-        "account_statement_url": "",
-    },
-    "bank_details": {
-        "acno": "123456",
-        "ifsc_code": "...",
-        "branch": "",
-        "city": ""
-    }
+    "line1": "address line1",
+    "line2": "address line2",
+    "landmark": "landmark",
+    "city": "city",
+    "state": "state",
+    "pin": "pin"
 }
 ```
 
@@ -196,6 +227,156 @@ POST: http://localhost/agro/api/user/myprofile
 
 ### Sub Task (Secondary)
 - [ ] My profile form data validation
+
+------
+
+#### API 05.02: My Profile :: Update Pan
+POST: http://localhost/agro/api/user/update-pan
+
+:Header:
+```javascript
+{
+    "Content-Type": "application/json"
+    "Authorization": "jwt token..."
+}
+```
+
+:Request:
+```javascript
+{
+    "panno": "ALRRS9878",
+    "panno_url": "..."
+}
+```
+
+:Response:
+```javascript
+{
+    "status": 1,
+    "message": "Ok"
+}
+```
+
+### Sub Task (Primary)
+- [ ] Check for JWT Validity and extract Mobno from JWT and process the request
+
+### Sub Task (Secondary)
+- [ ] My profile form data validation
+
+------
+
+#### API 05.03: My Profile :: Update Address Proof
+POST: http://localhost/agro/api/user/update-addressproof
+
+:Header:
+```javascript
+{
+    "Content-Type": "application/json"
+    "Authorization": "jwt token..."
+}
+```
+
+:Request:
+```javascript
+{
+    "address_proof_type": "",
+    "address_proof_no": "",
+    "address_proof_url": ""
+}
+```
+
+:Response:
+```javascript
+{
+    "status": 1,
+    "message": "Ok"
+}
+```
+
+### Sub Task (Primary)
+- [ ] Check for JWT Validity and extract Mobno from JWT and process the request
+
+### Sub Task (Secondary)
+- [ ] My profile form data validation
+
+------
+
+#### API 05.04: My Profile :: Bank Details
+POST: http://localhost/agro/api/user/update-bank
+
+:Header:
+```javascript
+{
+    "Content-Type": "application/json"
+    "Authorization": "jwt token..."
+}
+```
+
+:Request:
+```javascript
+{
+    "bank_cross_cheque_url": "",
+    "passbook_leaf_url": "",
+    "account_statement_url": "",
+    "acno": "123456",
+    "ifsc_code": "...",
+    "branch": "",
+    "city": ""
+}
+```
+
+:Response:
+```javascript
+{
+    "status": 1,
+    "message": "Ok"
+}
+```
+
+### Sub Task (Primary)
+- [ ] Check for JWT Validity and extract Mobno from JWT and process the request
+
+### Sub Task (Secondary)
+- [ ] My profile form data validation
+
+------
+
+#### API 05.05: Upload File
+POST: http://localhost/agro/api/user/update
+
+:Header:
+```javascript
+{
+    "Content-Type": "application/json"
+    "Authorization": "jwt token..."
+}
+```
+
+:Request:
+```javascript
+{
+    "file_name": "",
+    "file": ""
+}
+```
+
+:Response:
+```javascript
+{
+    "status": 1,
+    "message": "Ok",
+    "file_id": "35634653456345dfgdgdrg"
+}
+```
+
+### Sub Task (Primary)
+- [ ] Check for JWT Validity and extract Mobno from JWT and process the request
+- [ ] Upload the file and return the file upload id.
+- [ ] Don't return the file upload url for security purpose.
+
+### Sub Task (Secondary)
+- [ ] My profile form data validation
+- [ ] Resize Image to optimize size using NodeJS
 
 ------
 
