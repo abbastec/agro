@@ -16,7 +16,8 @@ GET: http://localhost/agro/api/user/referal-register
     "last_name": "Perumal",
     "email": "senthil@gmail.com",
     "mobno": "9791078777",
-    "password": "welcome123"
+    "password": "welcome123",
+    "referal_code": "4564564567757",
 }
 ```
 
@@ -35,7 +36,9 @@ GET: http://localhost/agro/api/user/referal-register
 - [ ] EMail Id Validation
 - [ ] Mobile Number Valdiation [Number Only] [Max Length 10]
 - [ ] Password Validation [Min Length 8] [Characters Allowed: A-Z a-z 0-0 _ -] [Must have one alphabet and one number]
+- [ ] Validate Referal Code
 
+------
 #### API 02: Send OTP
 GET: http://localhost/agro/api/user/send-otp
 
@@ -67,7 +70,7 @@ GET: http://localhost/agro/api/user/send-otp
 ### Sub Task (Secondary)
 - [ ] Mobile Number Valdiation [Number Only] [Max Length 10]
 
-
+------
 #### API 03: Verify OTP
 GET: http://localhost/agro/api/user/verify-otp
 
@@ -99,6 +102,7 @@ GET: http://localhost/agro/api/user/verify-otp
 ### Sub Task (Secondary)
 - [ ] Mobile Number Valdiation [Number Only] [Max Length 10]
 
+------
 #### API 04: Login
 GET: http://localhost/agro/api/user/login
 
@@ -143,6 +147,7 @@ GET: http://localhost/agro/api/user/login
 ### Sub Task (Secondary)
 - [ ] Mobile Number Valdiation [Number Only] [Max Length 10]
 
+------
 #### API 05: EMailId Validation
 GET: http://localhost/agro/api/user/email-validate
 
