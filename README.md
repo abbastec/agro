@@ -253,8 +253,8 @@ POST | http://localhost/agro/api/admin/payment
 #### API 06: User: Referral Registration
 
 <p>
-    <a href="https://raw.githubusercontent.com/abbastec/agro/master/10-referal-registration.JPG" target="_blank">
-        <img src="https://raw.githubusercontent.com/abbastec/agro/master/10-referal-registration.JPG" align="left" width="30" >
+    <a href="https://raw.githubusercontent.com/abbastec/agro/master/06ReferalCode.JPG" target="_blank">
+        <img src="https://raw.githubusercontent.com/abbastec/agro/master/06ReferalCode.JPG" align="left" width="30" >
     </a>
 </p>
 
@@ -300,11 +300,56 @@ POST | http://localhost/agro/api/user/referralreg
 
 ------
 
+#### API 08: User: Get User Details [Name, Wallet, Matrix details]
+
+<p>
+    <a href="https://raw.githubusercontent.com/abbastec/agro/master/08HomeScreenMatrix.JPG" target="_blank">
+        <img src="https://raw.githubusercontent.com/abbastec/agro/master/08HomeScreenMatrix.JPG" align="left" width="30" >
+    </a>
+</p>
+
+Request Type | API End Point
+------------ | -------------
+GET | http://localhost/agro/api/user/details
+
+:Header:
+```javascript
+{
+    "Content-Type": "application/json"
+    "Authorization": "jwt token..."
+}
+```
+
+:Response:
+```javascript
+{
+    "status": 1,
+    "message": "Ok",
+    "wallet": "500",
+    "matrix": {
+        "usera": { id: "user id", "ref_code": "..code..", "status": "1", "name": "user_name", "mobno": "9791077718" },
+        "userb": { id: "user id", "ref_code": "..code..", "status": "2", "name": "user_name", "mobno": "9791077718" },
+        "userc": { id: "user id", "ref_code": "..code..", "status": "2", "name": "user_name", "mobno": "9791077718" },
+        "usera1": { id: "user id", "ref_code": "..code..", "status": "3", "name": "user_name", "mobno": "9791077718" },
+        . . . 
+    }
+    
+}
+```
+
+### Sub Task (Primary)
+- [ ] Check for JWT Validity and extract Mobno from JWT and process the request
+
+### Sub Task (Secondary)
+- [ ] N/A
+
+------
+
 #### API 09: Generate Referal
 
 <p>
-    <a href="https://raw.githubusercontent.com/abbastec/agro/master/06-generate-referal.JPG" target="_blank">
-        <img src="https://raw.githubusercontent.com/abbastec/agro/master/06-generate-referal.JPG" align="left" width="30" >
+    <a href="https://raw.githubusercontent.com/abbastec/agro/master/08HomeScreenMatrix.JPG" target="_blank">
+        <img src="https://raw.githubusercontent.com/abbastec/agro/master/08HomeScreenMatrix.JPG" align="left" width="30" >
     </a>
 </p>
 
