@@ -1,14 +1,14 @@
 ### Screen Design
 Screen No | Design
 ------------ | -------------
-01 | [Enter Mobno](https://raw.githubusercontent.com/abbastec/agro/master/01EnterMobno.JPG)
-02 | [OTP With Password](https://raw.githubusercontent.com/abbastec/agro/master/02OTPwithPassword.JPG)
-03 | [Password Only Screen](https://raw.githubusercontent.com/abbastec/agro/master/03PasswordOnlyScreen.JPG)
-04 | [Admin Home](https://raw.githubusercontent.com/abbastec/agro/master/04AdminHome.JPG)
-05 | [Admin Payment](https://raw.githubusercontent.com/abbastec/agro/master/05AdminPayment.JPG)
-06 | [Referral Code](https://raw.githubusercontent.com/abbastec/agro/master/06ReferalCode.JPG)
-07 | [Home Screen Payment](https://raw.githubusercontent.com/abbastec/agro/master/07HomeScreenPayment.JPG)
-08 | [Home Screen Matrix](https://raw.githubusercontent.com/abbastec/agro/master/08HomeScreenMatrix.JPG)
+01 | [Login Mobno](https://raw.githubusercontent.com/abbastec/agro/master/01EnterMobno.JPG)
+02 | [Login: OTP With Password](https://raw.githubusercontent.com/abbastec/agro/master/02OTPwithPassword.JPG)
+03 | [Login: Password Only Screen](https://raw.githubusercontent.com/abbastec/agro/master/03PasswordOnlyScreen.JPG)
+04 | [Admin: Home](https://raw.githubusercontent.com/abbastec/agro/master/04AdminHome.JPG)
+05 | [Admin: View Payment](https://raw.githubusercontent.com/abbastec/agro/master/05AdminPayment.JPG)
+06 | [Referral Registration](https://raw.githubusercontent.com/abbastec/agro/master/06ReferalCode.JPG)
+07 | [Home Screen: Payment](https://raw.githubusercontent.com/abbastec/agro/master/07HomeScreenPayment.JPG)
+08 | [Home Screen: Matrix](https://raw.githubusercontent.com/abbastec/agro/master/08HomeScreenMatrix.JPG)
 
 ### API End Point
 
