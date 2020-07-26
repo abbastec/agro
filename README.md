@@ -1,10 +1,22 @@
+### Screen Design
+Screen No | Design
+------------ | -------------
+01 | [Enter Mobno](https://raw.githubusercontent.com/abbastec/agro/master/01EnterMobno.JPG)
+02 | [OTP With Password](https://raw.githubusercontent.com/abbastec/agro/master/02OTPwithPassword.JPG)
+03 | [Password Only Screen](https://raw.githubusercontent.com/abbastec/agro/master/03PasswordOnlyScreen.JPG)
+04 | [Admin Home](https://raw.githubusercontent.com/abbastec/agro/master/04AdminHome.JPG)
+05 | [Admin Payment](https://raw.githubusercontent.com/abbastec/agro/master/05AdminPayment.JPG)
+06 | [Referral Code](https://raw.githubusercontent.com/abbastec/agro/master/06ReferalCode.JPG)
+07 | [Home Screen Payment](https://raw.githubusercontent.com/abbastec/agro/master/07HomeScreenPayment.JPG)
+08 | [Home Screen Matrix](https://raw.githubusercontent.com/abbastec/agro/master/08HomeScreenMatrix.JPG)
+
 ### API End Point
 
 #### API 01: Mobile Number Login
 
 <p>
-    <a href="https://raw.githubusercontent.com/abbastec/agro/master/01-mobno-login.JPG" target="_blank">
-        <img src="https://raw.githubusercontent.com/abbastec/agro/master/01-mobno-login.JPG" align="left" width="30" >
+    <a href="https://raw.githubusercontent.com/abbastec/agro/master/01EnterMobno.JPG" target="_blank">
+        <img src="https://raw.githubusercontent.com/abbastec/agro/master/01EnterMobno.JPG" align="left" width="30" >
     </a>
 </p>
 
@@ -50,8 +62,8 @@ POST | http://localhost/agro/api/user/mobno-login
 #### API 02: Validate OTP and Set New Password
 
 <p>
-    <a href="https://raw.githubusercontent.com/abbastec/agro/master/02-validate-otp-set-password.JPG" target="_blank">
-        <img src="https://raw.githubusercontent.com/abbastec/agro/master/02-validate-otp-set-password.JPG" align="left" width="30" >
+    <a href="https://raw.githubusercontent.com/abbastec/agro/master/02OTPwithPassword.JPG" target="_blank">
+        <img src="https://raw.githubusercontent.com/abbastec/agro/master/02OTPwithPassword.JPG" align="left" width="30" >
     </a>
 </p>
 
@@ -96,8 +108,8 @@ POST | http://localhost/agro/api/user/validate-otp-set-password
 #### API 03: Login with Password
 
 <p>
-    <a href="https://raw.githubusercontent.com/abbastec/agro/master/03-login-with-password.JPG" target="_blank">
-        <img src="https://raw.githubusercontent.com/abbastec/agro/master/03-login-with-password.JPG" align="left" width="30" >
+    <a href="https://raw.githubusercontent.com/abbastec/agro/master/03PasswordOnlyScreen.JPG" target="_blank">
+        <img src="https://raw.githubusercontent.com/abbastec/agro/master/03PasswordOnlyScreen.JPG" align="left" width="30" >
     </a>
 </p>
 
@@ -149,7 +161,7 @@ POST | http://localhost/agro/api/user/login
 
 ------
 
-#### API 04: Payment
+#### API 04: Admin: View Payment
 
 <p>
     <a href="https://raw.githubusercontent.com/abbastec/agro/master/04-payment.JPG" target="_blank">
@@ -233,234 +245,6 @@ GET | http://localhost/agro/api/user/myprofile
 
 ### Sub Task (Secondary)
 - [ ] My profile form data validation
-
-------
-
-#### API 05.01: My Profile :: Update Address
-
-<p>
-    <a href="https://raw.githubusercontent.com/abbastec/agro/master/05_01-update-address.JPG" target="_blank">
-        <img src="https://raw.githubusercontent.com/abbastec/agro/master/05_01-update-address.JPG" align="left" width="30" >
-    </a>
-</p>
-
-Request Type | API End Point
------------- | -------------
-POST | http://localhost/agro/api/user/update-address
-
-:Header:
-```javascript
-{
-    "Content-Type": "application/json"
-    "Authorization": "jwt token..."
-}
-```
-
-:Request:
-```javascript
-{
-    "line1": "address line1",
-    "line2": "address line2",
-    "landmark": "landmark",
-    "city": "city",
-    "state": "state",
-    "pin": "pin"
-}
-```
-
-:Response:
-```javascript
-{
-    "status": 1,
-    "message": "Ok"
-}
-```
-
-### Sub Task (Primary)
-- [ ] Check for JWT Validity and extract Mobno from JWT and process the request
-
-### Sub Task (Secondary)
-- [ ] My profile form data validation
-
-------
-
-#### API 05.02: My Profile :: Update Pan
-
-<p>
-    <a href="https://raw.githubusercontent.com/abbastec/agro/master/05_02-update-pan.JPG" target="_blank">
-        <img src="https://raw.githubusercontent.com/abbastec/agro/master/05_02-update-pan.JPG" align="left" width="30" >
-    </a>
-</p>
-
-Request Type | API End Point
------------- | -------------
-POST | http://localhost/agro/api/user/update-pan
-
-:Header:
-```javascript
-{
-    "Content-Type": "application/json"
-    "Authorization": "jwt token..."
-}
-```
-
-:Request:
-```javascript
-{
-    "panno": "ALRRS9878",
-    "panno_url": "..."
-}
-```
-
-:Response:
-```javascript
-{
-    "status": 1,
-    "message": "Ok"
-}
-```
-
-### Sub Task (Primary)
-- [ ] Check for JWT Validity and extract Mobno from JWT and process the request
-
-### Sub Task (Secondary)
-- [ ] My profile form data validation
-
-------
-
-#### API 05.03: My Profile :: Update Address Proof
-
-<p>
-    <a href="https://raw.githubusercontent.com/abbastec/agro/master/05_03-update-address.JPG" target="_blank">
-        <img src="https://raw.githubusercontent.com/abbastec/agro/master/05_03-update-address.JPG" align="left" width="30" >
-    </a>
-</p>
-
-Request Type | API End Point
------------- | -------------
-POST | http://localhost/agro/api/user/update-addressproof
-
-:Header:
-```javascript
-{
-    "Content-Type": "application/json"
-    "Authorization": "jwt token..."
-}
-```
-
-:Request:
-```javascript
-{
-    "address_proof_type": "",
-    "address_proof_no": "",
-    "address_proof_url": ""
-}
-```
-
-:Response:
-```javascript
-{
-    "status": 1,
-    "message": "Ok"
-}
-```
-
-### Sub Task (Primary)
-- [ ] Check for JWT Validity and extract Mobno from JWT and process the request
-
-### Sub Task (Secondary)
-- [ ] My profile form data validation
-
-------
-
-#### API 05.04: My Profile :: Bank Details
-
-<p>
-    <a href="https://raw.githubusercontent.com/abbastec/agro/master/05_04-update-bank.JPG" target="_blank">
-        <img src="https://raw.githubusercontent.com/abbastec/agro/master/05_04-update-bank.JPG" align="left" width="30" >
-    </a>
-</p>
-
-Request Type | API End Point
------------- | -------------
-POST | http://localhost/agro/api/user/update-bank
-
-:Header:
-```javascript
-{
-    "Content-Type": "application/json"
-    "Authorization": "jwt token..."
-}
-```
-
-:Request:
-```javascript
-{
-    "bank_cross_cheque_url": "",
-    "passbook_leaf_url": "",
-    "account_statement_url": "",
-    "acno": "123456",
-    "ifsc_code": "...",
-    "branch": "",
-    "city": ""
-}
-```
-
-:Response:
-```javascript
-{
-    "status": 1,
-    "message": "Ok"
-}
-```
-
-### Sub Task (Primary)
-- [ ] Check for JWT Validity and extract Mobno from JWT and process the request
-
-### Sub Task (Secondary)
-- [ ] My profile form data validation
-
-------
-
-#### API 05.05: Upload File
-
-Request Type | API End Point
------------- | -------------
-POST | http://localhost/agro/api/user/update
-
-:Header:
-```javascript
-{
-    "Content-Type": "application/json"
-    "Authorization": "jwt token..."
-}
-```
-
-:Request:
-```javascript
-{
-    "file_name": "",
-    "file": ""
-}
-```
-
-:Response:
-```javascript
-{
-    "status": 1,
-    "message": "Ok",
-    "file_id": "35634653456345dfgdgdrg"
-}
-```
-
-### Sub Task (Primary)
-- [ ] Check for JWT Validity and extract Mobno from JWT and process the request
-- [ ] Upload the file and return the file upload id.
-- [ ] Don't return the file upload url for security purpose.
-
-### Sub Task (Secondary)
-- [ ] My profile form data validation
-- [ ] Resize Image to optimize size using NodeJS
 
 ------
 
