@@ -153,7 +153,7 @@ POST | http://localhost/agro/api/user/auth
 ### Sub Task (Primary)
 - [ ] Mobile Number should exist in database and [status in 2,3]
 - [ ] Check for Password Validity with hashed db password
-- [ ] Return JWT Token with payload { mobno: 9791070990, role: user or admin or  }
+- [ ] Return JWT Token with payload { mobno: 9791070990, role: user or admin or ...  }
 - [ ] If invalid Mobile number or password then return Error Code 401: Invalid Login details
 
 ### Sub Task (Secondary)
@@ -290,13 +290,14 @@ POST | http://localhost/agro/api/user/referralreg
 ### Sub Task (Primary)
 - [ ] Mobile Number should not exist in database and [status not in 1,2,3]
 - [ ] Referal code should be valid and available for registration
+- [ ] Insert new user details
+- [ ] Update Matrix entry in Referal User
 
 ### Sub Task (Secondary)
 - [ ] First name, last name validation. Max Length: 50
 - [ ] EMail Id Validation
 - [ ] Mobile Number Valdiation [Number Only] [Max Length 10]
 - [ ] Password Validation [Min Length 8] [Characters Allowed: A-Z a-z 0-0 _ -] [Must have one alphabet and one number]
-- [ ] Validate Referal Code
 
 ------
 
