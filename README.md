@@ -22,7 +22,7 @@ Screen No | Design
 
 Request Type | API End Point
 ------------ | -------------
-POST | http://localhost/agro/api/user/mobno-login
+POST | http://localhost/agro/api/user/mobno
 
 :Header:
 ```javascript
@@ -46,7 +46,7 @@ POST | http://localhost/agro/api/user/mobno-login
 }
 ```
 ### Sub Task (Primary)
-- [x] If Mobile Number exist in Database and [Status=2 or Status=3]
+- [ ] If Mobile Number exist in Database and [Status=2 or Status=3]
 * - [ ] Return response status as 1. We can Navigate the screen to get password.
 - [ ] If Mobile Number exist in Database and [Status=1]
 * - [ ] Return response status will be 2. We can Navigate the screen to get OTP. 
@@ -69,7 +69,7 @@ POST | http://localhost/agro/api/user/mobno-login
 
 Request Type | API End Point
 ------------ | -------------
-POST | http://localhost/agro/api/user/validate-otp-set-password
+POST | http://localhost/agro/api/user/otp
 
 :Header:
 ```javascript
@@ -115,7 +115,7 @@ POST | http://localhost/agro/api/user/validate-otp-set-password
 
 Request Type | API End Point
 ------------ | -------------
-POST | http://localhost/agro/api/user/login
+POST | http://localhost/agro/api/user/auth
 
 :Header:
 ```javascript
@@ -161,23 +161,32 @@ POST | http://localhost/agro/api/user/login
 
 ------
 
-#### API 04: Admin: View Payment
+#### API 04: Admin: Get User Count
 
 <p>
-    <a href="https://raw.githubusercontent.com/abbastec/agro/master/04-payment.JPG" target="_blank">
-        <img src="https://raw.githubusercontent.com/abbastec/agro/master/04-payment.JPG" align="left" width="30" >
+    <a href="https://raw.githubusercontent.com/abbastec/agro/master/04AdminHome.JPG" target="_blank">
+        <img src="https://raw.githubusercontent.com/abbastec/agro/master/04AdminHome.JPG" align="left" width="30" >
     </a>
 </p>
 
 Request Type | API End Point
 ------------ | -------------
-POST | http://localhost/agro/api/user/payment
+GET | http://localhost/agro/api/admin/usercount
 
 :Header:
 ```javascript
 {
     "Content-Type": "application/json"
     "Authorization": "jwt token..."
+}
+```
+
+:Response:
+```javascript
+{
+    "status": 1,
+    "message": "Ok",
+    "count": "34054"
 }
 ```
 
@@ -190,75 +199,17 @@ POST | http://localhost/agro/api/user/payment
 
 ------
 
-#### API 05: My Profile
+#### API 05: Admin: View Payment
 
 <p>
-    <a href="https://raw.githubusercontent.com/abbastec/agro/master/05-my-profile.JPG" target="_blank">
-        <img src="https://raw.githubusercontent.com/abbastec/agro/master/05-my-profile.JPG" align="left" width="30" >
+    <a href="https://raw.githubusercontent.com/abbastec/agro/master/05AdminPayment.JPG" target="_blank">
+        <img src="https://raw.githubusercontent.com/abbastec/agro/master/05AdminPayment.JPG" align="left" width="30" >
     </a>
 </p>
 
 Request Type | API End Point
 ------------ | -------------
-GET | http://localhost/agro/api/user/myprofile
-
-:Header:
-```javascript
-{
-    "Content-Type": "application/json"
-    "Authorization": "jwt token..."
-}
-```
-
-:Response:
-```javascript
-{
-    "status": 1,
-    "message": "Ok"
-    "address": {
-        "line1": "address line1",
-        "line2": "address line2",
-        "landmark": "landmark",
-        "city": "city",
-        "state": "state",
-        "pin": "pin",
-    },
-    "pan": {
-        "panno": "XXXXXXX78",
-        "status": "Approved"
-    },
-    "address": {
-        "proof_no": "XXX-XXXX-XX98",
-        "status": "Approved",
-    },
-    "bank_details": {
-        "acno": "XXXXXX56",
-        "status": "Approved",
-    }
-}
-```
-
-### Sub Task (Primary)
-- [ ] Check for JWT Validity and extract Mobno from JWT and process the request
-- [ ] Mask all the Id's
-- [ ] Don't return document file url
-
-### Sub Task (Secondary)
-- [ ] My profile form data validation
-
-------
-
-#### API 06: Generate Referal
-
-<p>
-    <a href="https://raw.githubusercontent.com/abbastec/agro/master/06-generate-referal.JPG" target="_blank">
-        <img src="https://raw.githubusercontent.com/abbastec/agro/master/06-generate-referal.JPG" align="left" width="30" >
-    </a>
-</p>
-
-Request Type | API End Point
------------- | -------------
-GET | http://localhost/agro/api/user/generate-referal
+POST | http://localhost/agro/api/admin/payment
 
 :Header:
 ```javascript
@@ -271,80 +222,9 @@ GET | http://localhost/agro/api/user/generate-referal
 :Request:
 ```javascript
 {
-    "matrix": "A"
-}
-```
-
-:Response:
-```javascript
-{
-    "status": 1,
-    "message": "Ok",
-    "referal_code": "37857uefj83u58utfio340895ui930it"
-}
-```
-### Sub Task (Primary)
-- [ ] Check for JWT Validity and extract Mobno from JWT and process the request
-- [ ] Mobile Number should exist in database and [status=3]
-- [ ] Check for Matrix A is available
-- [ ] Referal code is hashed with a combination of [mobno /_matrix eg: 9791070918A]
-
-### Sub Task (Secondary)
-- [x] No Task
-
-------
-
-#### API 07: View Transaction
-GET: http://localhost/agro/api/user/view-tran
-
-:Header:
-```javascript
-{
-    "Content-Type": "application/json"
-    "Authorization": "jwt token..."
-}
-```
-
-:Response:
-```javascript
-{
-    "status": 1,
-    "message": "Ok",
-    "tran": {
-        walletAmount: 500,
-        list: [   
-            { "dt":"12-JUL-2020", "desc": "Withdrawl", "cr": 0, "dr": 1000 },
-            { "dt":"11-JUL-2020", "desc": "RAKESH Joined", "user_id": "23", "cr": 1000, "dr": 0 },
-            { "dt":"10-JUL-2020", "desc": "Initial Wallet Credit", "cr": 500, "dr": 0 },
-            { "dt":"10-JUL-2020", "desc": "Initial Payment", "cr": 0, "dr": 5000 }
-        ]
-    }
-}
-```
-### Sub Task (Primary)
-- [ ] Check for JWT Validity and extract Mobno from JWT and process the request
-
-### Sub Task (Secondary)
-- [x] No Task
-
-------
-
-#### API 08: Apply Withdrawl
-POST: http://localhost/agro/api/user/apply-withdrawl
-
-:Header:
-```javascript
-{
-    "Content-Type": "application/json"
-    "Authorization": "jwt token..."
-}
-```
-
-:Request:
-```javascript
-{
-    "amount": "1000",
-    "comments": "For Personal"
+    "view": "Last 5 days",
+    "from_date": "",
+    "to_date": ""
 }
 ```
 
@@ -353,53 +233,24 @@ POST: http://localhost/agro/api/user/apply-withdrawl
 {
     "status": 1,
     "message": "Ok"
-}
-```
-
-### Sub Task (Primary)
-- [ ] Check for JWT Validity and extract Mobno from JWT and process the request
-- [ ] Check Withdrawl amount is available.
-- [ ] Previous Withdrawal request should not be in pending.
-
-### Sub Task (Secondary)
-- [x] No Task
-
-------
-
-#### API 09: View Withdrawl
-GET: http://localhost/agro/api/user/view-withdrawl
-
-:Header:
-```javascript
-{
-    "Content-Type": "application/json"
-    "Authorization": "jwt token..."
-}
-```
-
-:Response:
-```javascript
-{
-    "status": 1,
-    "message": "Ok",
-    "tran": [
-        { "req_date": "15-JUL-2020", "req_amount": "1000", "req_status": "Pending", "comments": "" }
+    "list": [
+        { "user_name": "User Name", "mobno": "9791070888", "amt": "5000" },
+        { "user_name": "User Name", "mobno": "9791070881", "amt": "5000" }
     ]
-    
 }
 ```
 
 ### Sub Task (Primary)
-- [ ] Check for JWT Validity and extract Mobno from JWT and process the request.
-- [ ] Withdrawl request status will be Pending, Processed and Rejected.
-- [ ] Previous Withdrawal request should not be in pending.
+- [ ] Check for JWT Validity and extract Mobno from JWT and process the request
+- [ ] View, From Date and To Date are optional
 
 ### Sub Task (Secondary)
-- [x] No Task
+- [ ] Date Validation
+- [ ] Future: Pull to refresh pagination may required.
 
 ------
 
-#### API 10: Register with Referal Code
+#### API 06: User: Referral Registration
 
 <p>
     <a href="https://raw.githubusercontent.com/abbastec/agro/master/10-referal-registration.JPG" target="_blank">
@@ -409,7 +260,7 @@ GET: http://localhost/agro/api/user/view-withdrawl
 
 Request Type | API End Point
 ------------ | -------------
-POST | http://localhost/agro/api/user/referal-registration
+POST | http://localhost/agro/api/user/referralreg
 
 :Header:
 ```javascript
@@ -446,5 +297,51 @@ POST | http://localhost/agro/api/user/referal-registration
 - [ ] Mobile Number Valdiation [Number Only] [Max Length 10]
 - [ ] Password Validation [Min Length 8] [Characters Allowed: A-Z a-z 0-0 _ -] [Must have one alphabet and one number]
 - [ ] Validate Referal Code
+
+------
+
+#### API 09: Generate Referal
+
+<p>
+    <a href="https://raw.githubusercontent.com/abbastec/agro/master/06-generate-referal.JPG" target="_blank">
+        <img src="https://raw.githubusercontent.com/abbastec/agro/master/06-generate-referal.JPG" align="left" width="30" >
+    </a>
+</p>
+
+Request Type | API End Point
+------------ | -------------
+GET | http://localhost/agro/api/user/referralcode
+
+:Header:
+```javascript
+{
+    "Content-Type": "application/json"
+    "Authorization": "jwt token..."
+}
+```
+
+:Request:
+```javascript
+{
+    "matrix": "A"
+}
+```
+
+:Response:
+```javascript
+{
+    "status": 1,
+    "message": "Ok",
+    "referal_code": "37857uefj83u58utfio340895ui930it"
+}
+```
+### Sub Task (Primary)
+- [ ] Check for JWT Validity and extract Mobno from JWT and process the request
+- [ ] Mobile Number should exist in database and [status=3]
+- [ ] Check for Matrix A is available
+- [ ] Referal code is hashed with a combination of [mobno /_matrix eg: 9791070918A]
+
+### Sub Task (Secondary)
+- [x] No Task
 
 ------
